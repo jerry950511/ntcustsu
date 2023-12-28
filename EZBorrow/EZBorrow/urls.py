@@ -3,6 +3,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('ReserveApp.urls')),
+    path('', include('EZBorrowApp.urls')),
     path('', include("django_nextjs.urls")),
 ]

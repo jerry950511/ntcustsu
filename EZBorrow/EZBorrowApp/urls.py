@@ -1,4 +1,4 @@
-# ReserveApp/urls.py
+# EZBorrowApp/urls.py
 
 from django.urls import path
 from .views import article_list,index

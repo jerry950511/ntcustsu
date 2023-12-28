@@ -6,7 +6,7 @@ def article_list(request):
     articles = Article.objects.all()
     
     # 將文章傳遞到模板中
-    return render(request, 'ReserveApp/article_list.html', {'articles': articles})
+    return render(request, 'EZBorrowApp/article_list.html', {'articles': articles})
 
 from django_nextjs.render import render_nextjs_page_sync
 def index(request):

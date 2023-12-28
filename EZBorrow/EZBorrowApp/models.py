@@ -1,4 +1,4 @@
-# ReserveApp/models.py
+# EZBorrowApp/models.py
 
 from django.db import models
 
@@ -11,4 +11,4 @@ class Article(models.Model):
         return self.title
 
     class Meta:
-        app_label = 'ReserveApp'
+        app_label = 'EZBorrowApp'
