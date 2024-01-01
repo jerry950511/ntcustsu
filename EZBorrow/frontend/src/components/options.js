@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { v4 } from "uuid";
 
@@ -17,10 +17,18 @@ const Options = () => {
 		"6A-1",
 	];
 	return (
-		<select className="w-[300px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+		<select className="
+			dark:text-[#EFFFE9] dark:bg-[#011627] 
+			border border-gray-300  text-sm rounded-lg block p-2.5 
+			">
 			<option>全部</option>
 			{spaces.map((v) => {
-				return <option key={v4()} value={spaces}>{v}</option>;ㄌ
+				return (
+					<option key={v4()} value={spaces}>
+						{v}
+					</option>
+				);
+				ㄌ;
 			})}
 		</select>
 	);

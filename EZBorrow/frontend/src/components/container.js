@@ -1,6 +1,13 @@
-const Container = ({ children, style, className }) => {
+const Container = ({ children, style, className, mode }) => {
 	return (
-		<div className={`lg:w-pc m-auto relative ${className?className:""}`} style={style}>
+		<div
+			className={
+				`m-auto relative 
+				${mode==="mobile"?"w-mobile-sm":"lg:w-pc"} 
+				${className ? className : ""} 
+				`}
+			style={style}
+		>
 			{children}
 		</div>
 	);
