@@ -1,6 +1,6 @@
 "use client"
-import Calendar from "@/components/calendar";
-import Scheduling from "@/components/scheduling";
+import Calendar from "./calendar";
+import Scheduling from "./scheduling";
 import { useState } from "react";
 
 const Body = () => {

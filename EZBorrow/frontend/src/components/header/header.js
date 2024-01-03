@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 
-const Header = ({ leftSideBarSwitch }) => {
+const Header = ({ leftSideBarSwitch,setDate, year, month,prevMonth,nextMonth }) => {
 	const showLeftSideBar = () => {
 		leftSideBarSwitch((prev) => {
 			console.log(prev);
 			return !prev;
 		});
 	};
+
+	const dateInput = useRef();
+	const clickDate = () => {
+		dateInput.current.showPicker()
+	}
+	const dateLog = () => {
+		if (month<10) {
+			return year+"-0"+month;
+		} else {
+			return year+"-"+month;
+		}
+	}
+	const changeInput = (e) => {
+		setDate(
+			e.target.value
+		);
+	}
 
 	return (
 		<header className="bg-white shadow-lg h-[--header-height]">
@@ -38,7 +55,39 @@ const Header = ({ leftSideBarSwitch }) => {
 					</button>
 					<div className="font-bold mr-5"># 場地租借</div>
 				</div>
-				<div className="flex lg:flex-1"></div>
+				<div className="flex items-center gap-2">
+					<div className="flex gap-2 font-bold">
+						<button onClick={prevMonth}>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
+						</button>
+						<button onClick={nextMonth}>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+						</button>
+					</div>
+					<div className="font-extrabold text-xl tracking-wide">
+						<button onClick={clickDate}>
+							<input ref={dateInput} type="month" className="hidden" onChange={changeInput} value={dateLog()}></input>
+							{year}年 {month}月
+						</button>
+					</div>
+					<div>
+						<button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded">
+							今天
+						</button>
+					</div>
+					<div>
+						<select>
+							<option disabled>選擇場地</option>
+							<option select='true'>全部</option>
+						</select>
+					</div>
+					<div>
+						<select>
+							<option disabled>選擇學會</option>
+							<option select='true'>全部</option>
+						</select>
+					</div>
+				</div>
 				<div className="flex lg:hidden">
 					<button
 						type="button"

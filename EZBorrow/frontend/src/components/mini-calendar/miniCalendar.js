@@ -1,10 +1,10 @@
 import Table from "./units/table";
 import WeekDay from "./units/weekDay";
 
-const MiniCalendar = ({dateDetails,year,month,selectDay,setSelectDay,nextMonth,prevMonth}) => {
+const MiniCalendar = ({dateDetails,year,month,selectDay,setSelectDay,setMonthYear,nextMonth,prevMonth}) => {
     return (
         <div className="flex flex-col p-5">
-            <WeekDay year={year} month={month} nextMonth={nextMonth} prevMonth={prevMonth}></WeekDay>
+            <WeekDay year={year} month={month} setDate={setMonthYear} nextMonth={nextMonth} prevMonth={prevMonth}></WeekDay>
             <Table 
                 dateDetails = {dateDetails}
                 year={year} month={month} 

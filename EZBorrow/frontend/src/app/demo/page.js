@@ -1,5 +1,3 @@
-import Calendar from "@/components/calendar";
-
 const Home = () => {
 
 	return (

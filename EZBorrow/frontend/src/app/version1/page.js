@@ -1,8 +1,5 @@
 // Home page
-import Options from "@/components/options";
-import Calendar from "@/components/calendar";
 import Container from "@/components/container";
-import Scheduling from "@/components/scheduling";
 import RootLayout from "./layout";
 import Body from "./body";
 
