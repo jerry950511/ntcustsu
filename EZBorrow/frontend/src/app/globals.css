@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --light-background:white;
+    --light-color:black;
+    --light-hover:theme('colors.gray.500');
+
+    --dark-background:#000000;
+    --dark-color:#EFFFE9;
+
+    --header-height:64px;
+}

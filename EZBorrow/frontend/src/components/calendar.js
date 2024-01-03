@@ -4,7 +4,7 @@ import CalendarHeader from "./calendar/header";
 import WeekDays from "./calendar/month/weekDays";
 import MonthTable from "./calendar/month/monthTable";
 
-const Calendar = ({setScheduleDisplay}) => {
+const Calendar = ({className,setScheduleDisplay}) => {
 	const [date, setDate] = useState();
 	const [currentYear, setCurrentYear] = useState(0);
 	const [currentMonth, setCurrentMonth] = useState();
@@ -23,6 +23,7 @@ const Calendar = ({setScheduleDisplay}) => {
 			minute: time.getMinutes(),
 			second: time.getSeconds(),
 		};
+		console.log(timeDetails);
 		setDate(timeDetails);
 	}, []);
 
@@ -64,9 +65,9 @@ const Calendar = ({setScheduleDisplay}) => {
 	}
 
 	return (
-		<div className="
-				relative right-0 w-[615px] max-lg:w-full aspect-square rounded-lg
-			">
+		<div className={
+			(className ? className+" ":"")+
+			"relative right-0 w-[615px] max-lg:w-full aspect-square rounded-lg"}>
 			<CalendarHeader
 				date={date}
 				year={currentYear}
