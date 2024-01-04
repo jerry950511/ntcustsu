@@ -3,7 +3,13 @@ import Cell from "./cell";
 import { v4 } from "uuid";
 import { useEffect, useState } from "react";
 
-const Table = ({ dateDetails, year, month }) => {
+const Table = ({
+	dateDetails,
+	year,
+	month,
+	selectDay,
+	setSelectDay,
+}) => {
 	const [weekData, setWeekData] = useState([]);
 	useEffect(() => {
 		setWeekData(generateCalendar(year, month));
@@ -28,10 +34,14 @@ const Table = ({ dateDetails, year, month }) => {
 									? true
 									: false
 							}
-                            date = {value}
-						>
-                            
-						</Cell>
+							isSelect={
+								selectDay === year + "-" + month + "-" + value
+									? true
+									: false
+							}
+							setSelectDay={setSelectDay}
+							date={value}
+						></Cell>
 					);
 				});
 			})}

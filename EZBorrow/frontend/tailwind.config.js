@@ -12,13 +12,20 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
-      width: {
-        "256":"256px",
-        'pc':'1280px',
+      minWidth:{
         "mobile-sm":"330px"
       },
+      width: {
+        "256":"256px",
+        "180":"180px",
+        'pc':'1280px',
+        "mobile-sm":"330px",
+      },
+      maxWidth:{
+        "tablet":"768px"
+      },
       height: {
-        "max":"100dvh"
+        "max":"100svh"
       }
     },
   },

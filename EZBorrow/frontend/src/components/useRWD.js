@@ -5,8 +5,8 @@ const useRWD = () => {
     useEffect(() => {
         const handleResize = () => {
             setView(window.innerWidth);
-            console.log(window.innerWidth);
         };
+        setView(window.innerWidth);
 
         window.addEventListener("resize",handleResize);
         return () => {

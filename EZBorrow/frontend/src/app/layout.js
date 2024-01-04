@@ -9,6 +9,7 @@ export const metadata = {
 	auth: "Rex, Jerry",
 };
 export default function RootLayout({ children }) {
+	
 	return (
 		<html lang="en">
 			<body className={font.className+" h-max"}>

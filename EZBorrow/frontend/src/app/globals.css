@@ -11,6 +11,7 @@
     --dark-color:#EFFFE9;
 
     --header-height:64px;
+    --bottom-height:80px;
 }
 
 @layer utilities {
@@ -23,4 +24,8 @@
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
     }
+}
+
+body {
+  orientation: portrait;
 }
