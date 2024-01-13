@@ -11,6 +11,7 @@ const Calendar = ({
 	setSelectDay,
 	prevMonth,
 	nextMonth,
+	openForm
 }) => {
 	const calendarRef = useRef();
 	useEffect(() => {
@@ -36,6 +37,7 @@ const Calendar = ({
 				month={month}
 				selectDay={selectDay}
 				setSelectDay={setSelectDay}
+				openForm = {openForm}
 			></Table>
 		</div>
 	);

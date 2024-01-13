@@ -8,7 +8,8 @@ import CheckBox from "@/components/modal/units/checkbox";
 import NavBar from "@/components/navBar/navBar";
 import Link from "@/components/units/Link";
 import useRWD from "@/components/useRWD";
-import { useState, useEffect } from "react";
+import gsap from "gsap";
+import { useState, useEffect, useRef } from "react";
 
 const Home = () => {
 	/**
@@ -27,6 +28,9 @@ const Home = () => {
 	const [currentMonth, setCurrentMonth] = useState(-1);
 	const [currentDay, setCurrentDay] = useState(0);
 	const [selectDay, setSelectDay] = useState("");
+
+	const [formState,setFormState] = useState(false);
+	const formRef = useRef();
 
 	/**
 	 * 設定時間資料
@@ -90,6 +94,17 @@ const Home = () => {
 		setCurrentYear(dateDetails.year);
 	};
 
+	const openForm = () => {
+		setFormState((prev)=> {
+			return !prev;
+		});
+	}
+	const closeForm = () => {
+		setFormState((prev)=> {
+			return !prev;
+		});
+	}
+
 	useEffect(() => {
 		if (currentMonth === 13) {
 			setCurrentMonth(1);
@@ -127,6 +142,7 @@ const Home = () => {
 								nextMonth={nextMonth}
 								prevMonth={prevMonth}
 								setMonthYear={setMonthYear}
+								openForm = {openForm}
 							></MiniCalendar>
 						)}
 						<div className="text-left font-bold">
@@ -144,66 +160,38 @@ const Home = () => {
 					setSelectDay={setSelectDay}
 					nextMonth={nextMonth}
 					prevMonth={prevMonth}
+					openForm = {openForm}
 				></Calendar>
 				{1024 > device && <Bottom></Bottom>}
 			</div>
-			<Modal>
-				<h1 className="font-bold text-2xl my-5">租借場地：</h1>
-				<div className="flex">
-					<label>租借時段：</label>
-					<div>
-						<CheckBox name="borrowTime">時段一：7:00~8:00</CheckBox>
-						<CheckBox name="borrowTime">時段二：8:00~9:00</CheckBox>
-						<CheckBox name="borrowTime">
-							時段三：9:00~10:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段四：10:00~11:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段五：11:00~12:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段六：12:00~13:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段七：13:00~14:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段八：14:00~15:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段九：15:00~16:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段十：16:00~17:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段十一：17:00~18:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段十二：18:00~19:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段十三：19:00~20:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段十四：20:00~21:00
-						</CheckBox>
-						<CheckBox name="borrowTime">
-							時段十五：21:00~22:00
-						</CheckBox>
-					</div>
-				</div>
-				<div className="flex">
-					<button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-						取消
-					</button>
-					<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-						提交
-					</button>
-				</div>
-			</Modal>
+
+			{
+				formState && (
+					<Modal formState={formState} closeForm={closeForm}>
+						<h1 className="font-bold text-2xl my-5 text-center">租借場地：活動中心五樓</h1>
+						<div className="text-center my-3 text-xl">租借日期: {selectDay}</div>
+						<div className="text-center my-1.5">租借時段:</div>
+						<div className="grid grid-cols-2 text-center my-5">
+							<CheckBox name="borrowTime">時段一：7:00~8:00</CheckBox>
+							<CheckBox name="borrowTime">時段二：8:00~9:00</CheckBox>
+							<CheckBox name="borrowTime">時段三：9:00~10:00</CheckBox>
+							<CheckBox name="borrowTime">時段四：10:00~11:00</CheckBox>
+							<CheckBox name="borrowTime">時段五：11:00~12:00</CheckBox>
+							<CheckBox name="borrowTime">時段六：12:00~13:00</CheckBox>
+							<CheckBox name="borrowTime">時段七：13:00~14:00</CheckBox>
+							<CheckBox name="borrowTime">時段八：14:00~15:00</CheckBox>
+							<CheckBox name="borrowTime">時段九：15:00~16:00</CheckBox>
+							<CheckBox name="borrowTime">時段十：16:00~17:00</CheckBox>
+							<CheckBox name="borrowTime">時段十一：17:00~18:00</CheckBox>
+							<CheckBox name="borrowTime">時段十二：18:00~19:00</CheckBox>
+							<CheckBox name="borrowTime">時段十三：19:00~20:00</CheckBox>
+							<CheckBox name="borrowTime">時段十四：20:00~21:00</CheckBox>
+							<CheckBox name="borrowTime">時段十五：21:00~22:00</CheckBox>
+						</div>
+						
+					</Modal>
+				)
+			}
 		</>
 	);
 };

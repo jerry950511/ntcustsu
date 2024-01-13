@@ -1,7 +1,11 @@
-const Cell = ({ children, year, month, day, isToday ,isSelect,setSelectDay }) => {
+const Cell = ({ children, year, month, day, isToday ,isSelect,setSelectDay,openForm }) => {
 	const changeSelect = (e) => {
 		setSelectDay(e.target.getAttribute("data-cell-time"));
 	};
+	const handleDbClick = (e) => {
+		setSelectDay(e.target.getAttribute("data-cell-time"));
+		openForm();
+	}
 
 	return (
 		<>
@@ -14,6 +18,7 @@ const Cell = ({ children, year, month, day, isToday ,isSelect,setSelectDay }) =>
 					}
 					onClick={changeSelect}
 					data-cell-time={year + "-" + month + "-" + day}
+					onDoubleClick={handleDbClick}
 				>
 					{children}
 				</div>

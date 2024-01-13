@@ -2,7 +2,7 @@ import generateCalendar from "@/components/calenderSpawn";
 import Cell from "./cell";
 import { v4 } from "uuid";
 import { useEffect } from "react";
-const Table = ({ dateDetails, year, month,selectDay,setSelectDay }) => {
+const Table = ({ dateDetails, year, month,selectDay,setSelectDay,openForm }) => {
 	return (
 		<div className="grid grid-cols-7">
 			{generateCalendar(year, month).map((value) => {
@@ -23,6 +23,7 @@ const Table = ({ dateDetails, year, month,selectDay,setSelectDay }) => {
                                 selectDay===year + "-" + month + "-" + value?true:false
                             }
                             setSelectDay={setSelectDay}
+							openForm={openForm}
 						>
 							{value}
 						</Cell>

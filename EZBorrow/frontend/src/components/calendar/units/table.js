@@ -9,6 +9,7 @@ const Table = ({
 	month,
 	selectDay,
 	setSelectDay,
+	openForm
 }) => {
 	const [weekData, setWeekData] = useState([]);
 	useEffect(() => {
@@ -23,8 +24,8 @@ const Table = ({
 				return value.map((value) => {
 					return (
 						<Cell
-							key={v4()}
-							year={year}
+						key={v4()}
+						year={year}
 							month={month}
 							day={value}
 							isToday={
@@ -38,9 +39,10 @@ const Table = ({
 								selectDay === year + "-" + month + "-" + value
 									? true
 									: false
-							}
-							setSelectDay={setSelectDay}
-							date={value}
+								}
+								setSelectDay={setSelectDay}
+								date={value}
+								openForm={openForm}
 						></Cell>
 					);
 				});
